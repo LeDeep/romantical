@@ -8,6 +8,7 @@ gem 'thin'
 gem 'pg'
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem "paperclip", "~> 3.0"
+gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem "omniauth-identity"
