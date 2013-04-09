@@ -9,7 +9,7 @@ Romantical::Application.routes.draw do
   resources :profiles
   resources :users
 
-  root to: 'home#index'
+  root to: 'profiles#index'
 
 
   # The priority is based upon order of creation:

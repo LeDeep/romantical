@@ -23,11 +23,11 @@ let(:user) {FactoryGirl.create :user}
     it {should redirect_to root_path}
   end
 
-  context 'GET index' do
-    before {get :index}
+  # context 'GET index' do
+  #   before {get :index}
 
-    it {should render_template :index}
-  end
+  #   it {should redirect_to root_path}
+  # end
 
   # context 'PUT update' do
   #   context 'with valid parameters' do

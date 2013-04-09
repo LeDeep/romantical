@@ -5,9 +5,15 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create(params[:user])
-    flash[:notice] = "Your account was created."
-    redirect_to root_path
+    @user = User.new(params[:user])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path, notice: "You have created your account!"
+      # redirect_to user_path(@user), notice: "You have created account!"
+    else
+      flash.now[:alert] = "There were errors."
+      render :new
+    end
   end
 
   def index
