@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409145836) do
+ActiveRecord::Schema.define(:version => 20130409172502) do
 
   create_table "identities", :force => true do |t|
     t.string   "name"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20130409145836) do
     t.string   "gender"
     t.string   "in_relationship_with"
     t.string   "relationship_status"
-    t.datetime "anniversery"
+    t.datetime "anniversary"
     t.integer  "age"
     t.string   "city"
     t.string   "state"

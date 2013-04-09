@@ -8,7 +8,7 @@ describe Profile do
     it {should validate_presence_of :gender}
     it {should validate_presence_of :in_relationship_with}
     it {should validate_presence_of :relationship_status}
-    it {should validate_presence_of :anniversery}
+    it {should validate_presence_of :anniversary}
     it {should validate_presence_of :age}
     it {should validate_presence_of :city}
     it {should validate_presence_of :state}
@@ -22,7 +22,7 @@ describe Profile do
     it {should allow_mass_assignment_of :gender}
     it {should allow_mass_assignment_of :in_relationship_with}
     it {should allow_mass_assignment_of :relationship_status}
-    it {should allow_mass_assignment_of :anniversery}
+    it {should allow_mass_assignment_of :anniversary}
     it {should allow_mass_assignment_of :age}
     it {should allow_mass_assignment_of :city}
     it {should allow_mass_assignment_of :state}

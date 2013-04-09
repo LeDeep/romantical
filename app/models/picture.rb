@@ -1,5 +1,6 @@
 class Picture < ActiveRecord::Base
 
+  attr_accessible :picture_file_name, :picture_content_type, :picture_file_size, :picture_updated_at, :user_id
   validates_attachment_content_type :picture, :content_type => ["image/jpg", "image/png" ]
   validates_attachment_size :picture, :less_than => 3.megabytes
 

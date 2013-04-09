@@ -9,8 +9,6 @@ Romantical::Application.routes.draw do
   resources :profiles
   resources :users
 
-  
-
   root to: 'home#index'
 
 
