@@ -1,62 +1,62 @@
-class UsersController < ApplicationController
+# class UsersController < ApplicationController
 
   
-  def new
-    @user = User.new
-  end
+#   def new
+#     @user = User.new
+#   end
 
-  def create
-    @user = User.create(params[:user])
-    flash[:notice] = "Your account was created."
-    redirect_to root_path
-  end
+#   def create
+#     @user = User.create(params[:user])
+#     flash[:notice] = "Your account was created."
+#     redirect_to root_path
+#   end
 
-  def index
-    @users = User.all
-  end
+#   def index
+#     @users = User.all
+#   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+#   def show
+#     @user = User.find(params[:id])
+#   end
 
-  def create
-    @user = User.new(params[:user])
+#   def create
+#     @user = User.new(params[:user])
 
-  end
+#   end
 
-  def update
-    @user = User.find(params[:id])
+#   def update
+#     @user = User.find(params[:id])
 
-  end
+#   end
 
-  def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+#   def destroy
+#     @user = User.find(params[:id])
+#     @user.destroy
 
-  end
+#   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
+#   def edit
+#     @user = User.find(params[:id])
+#   end
 
 
-  # def update
-  #   @user = User.find(params[:id])
-  #   if @user.update_attributes(params[:user])
-  #     flash[:notice] = "You have successsfully updated."
-  #     redirect_to user_path(@user)
-  #   else
-  #     render :edit
-  #   end
-  # end
+#   # def update
+#   #   @user = User.find(params[:id])
+#   #   if @user.update_attributes(params[:user])
+#   #     flash[:notice] = "You have successsfully updated."
+#   #     redirect_to user_path(@user)
+#   #   else
+#   #     render :edit
+#   #   end
+#   # end
 
-  # def destroy
-  #   @user = User.find(params[:id])
-  #   @user.destroy
-  #   flash[:notice] = "Your user was successfully deleted."
-  #   redirect_to root_path
-  # end
+#   # def destroy
+#   #   @user = User.find(params[:id])
+#   #   @user.destroy
+#   #   flash[:notice] = "Your user was successfully deleted."
+#   #   redirect_to root_path
+#   # end
 
     
->>>>>>> master
-end
+
+# end

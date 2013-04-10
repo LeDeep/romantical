@@ -11,4 +11,7 @@ class SessionsController < ApplicationController
       redirect_to new_session_path, alert: "Email or Password was invalid!"
     end
   end
+
+
+
 end
