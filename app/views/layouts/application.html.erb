@@ -10,30 +10,25 @@
   <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, id: "flash_#{name}" %>
       <% end %>
-    <div id="user_nav">
-
-      <%unless current_user.blank? %>
-        Logged in as <b><%= current_user.email %></b>.
-
-        <div class="btn-group">
-          <div class="dropdown">
-            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Account <span class="caret"></span></a>
-            <ul class="dropdown-menu">
+        <div class="container">
+          <div class="nav-bar">
+            <%unless current_user.blank? %>
+              Logged in as <b><%= current_user.email %></b>.
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-            </ul>
-          </div>
-        </div>
+        
+          
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %> |
-        <%= link_to "Sign in", new_user_session_path %>
-        <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>
+        <%= link_to "Sign in", new_user_session_path %> |
+        <%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %> |
         <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
       <% end %>
+        </div>
+      </div>
 
-    </div>
 
     <%= yield %>
-  </div>
+
 
 </body>
 </html>
