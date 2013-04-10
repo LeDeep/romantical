@@ -4,7 +4,6 @@ describe Profile do
 
   context 'validations' do
     it {should validate_presence_of :name}
-    it {should validate_presence_of :points}
     it {should validate_presence_of :gender}
     it {should validate_presence_of :in_relationship_with}
     it {should validate_presence_of :relationship_status}
