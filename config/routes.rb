@@ -7,18 +7,20 @@ Romantical::Application.routes.draw do
 
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
-  match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'Sign out', to: 'sessions#destroy', as: 'signout'
+  match 'Sign in', to: 'sessions#create', as: 'signin'
 
 
   resources :identities
   resources :pictures
   resources :profiles
-  resources :users, :except => :create
+  resources :users
+
 
 
   
 
-  root to: 'users#index'
+  root to: 'home#index'
 
 
 

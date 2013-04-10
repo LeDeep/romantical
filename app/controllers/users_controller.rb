@@ -1,4 +1,4 @@
-# class UsersController < ApplicationController
+class UsersController < ApplicationController
 
   
 #   def new
@@ -11,33 +11,26 @@
 #     redirect_to root_path
 #   end
 
-#   def index
-#     @users = User.all
-#   end
+  def index
+    @users = User.all
+  end
 
-#   def show
-#     @user = User.find(params[:id])
-#   end
+  def show
+    @user = User.find(params[:id])
+  end
 
-#   def create
-#     @user = User.new(params[:user])
+  def update
+    @user = User.find(params[:id])
+  end
 
-#   end
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+  end
 
-#   def update
-#     @user = User.find(params[:id])
-
-#   end
-
-#   def destroy
-#     @user = User.find(params[:id])
-#     @user.destroy
-
-#   end
-
-#   def edit
-#     @user = User.find(params[:id])
-#   end
+  def edit
+    @user = User.find(params[:id])
+  end
 
 
 #   # def update
@@ -59,4 +52,4 @@
 
     
 
-# end
+end
