@@ -5,10 +5,16 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.create(params[:profile])
-    flash[:notice] = "Your profile was created."
-    redirect_to profiles_path 
-    # redirect_to profile_path(@profile)
+    @profile = Profile.new(params[:profile])
+
+    if @profile.save
+      # session[:user_id] = @user.id
+      redirect_to profiles_path, notice: "You have created your profile!"
+      # redirect_to profile_path(@profile), notice: "You have created your profile!"
+    else
+      flash.now[:alert] = "There were errors."
+      render :new
+    end
   end
  
   def index
