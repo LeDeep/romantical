@@ -1,11 +1,6 @@
 Romantical::Application.routes.draw do
-  # devise_for :users, path_names: {sign_in: "Sign in", sign_out: "Sign out"}, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-  # devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
-  
+  devise_for :users
 
   resources :identities
   resources :pictures

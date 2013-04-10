@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409221600) do
+ActiveRecord::Schema.define(:version => 20130410213538) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -19,12 +19,28 @@ ActiveRecord::Schema.define(:version => 20130409221600) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "identities", :force => true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+  create_table "assignments", :force => true do |t|
+    t.integer  "couple_id"
+    t.integer  "activity_id"
+    t.integer  "points"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "compensations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.integer  "points"
+    t.date     "expiration"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "couples", :force => true do |t|
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.date     "anniversary"
+    t.string   "relationship_status"
   end
 
   create_table "pictures", :force => true do |t|
@@ -37,19 +53,24 @@ ActiveRecord::Schema.define(:version => 20130409221600) do
     t.datetime "updated_at",           :null => false
   end
 
+  create_table "points", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "activity"
+    t.integer  "partner_id"
+    t.integer  "activty_value"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "profiles", :force => true do |t|
     t.string   "name"
-    t.integer  "points"
     t.string   "gender"
-    t.string   "in_relationship_with"
-    t.string   "relationship_status"
-    t.datetime "anniversary"
-    t.integer  "age"
     t.string   "city"
     t.string   "state"
     t.integer  "user_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.date     "birthdate"
   end
 
   create_table "users", :force => true do |t|
@@ -72,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20130409221600) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "username"
+    t.integer  "couple_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

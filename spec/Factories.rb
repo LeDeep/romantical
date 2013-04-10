@@ -1,7 +1,7 @@
 FactoryGirl.define do 
 
   factory :user do 
-    name 'Bill'
+    name 'Terry'
     sequence(:username) {|n| "user#{n}"}
     sequence(:email) { |n| "abc#{n}@gmail.com" }
     password "fooAAnnn$$54"
@@ -14,14 +14,11 @@ FactoryGirl.define do
     end
   end
 
+
   factory :profile do 
     name 'Steve'
-    points 1000
     gender 'male'
-    in_relationship_with 'Mary'
-    relationship_status 'married'
-    anniversary '2013-04-05'
-    age 41
+    birthdate '2000-06-16'
     city 'chicago'
     state 'IL'
     user_id 1

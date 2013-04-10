@@ -3,7 +3,7 @@ require 'spec_helper'
 describe ProfilesController do
 
  let(:date) {Date.today}
- let(:profile) {Profile.create({:name => 'jim', :points => 311, :gender => 'male', :in_relationship_with => 'kim', :relationship_status => 'engaged', :anniversary => date, :age => 23, :city => 'denver', :state => 'CO', :user_id => 1})}
+ let(:profile) {Profile.create({:name => 'jim',:gender => 'male', :birthdate => date, :city => 'denver', :state => 'CO', :user_id => 1})}
  let(:user) {User.create({:email => 'whatever@email.com', :password => 'reallgreat231212', :password_confirmation => 'reallgreat231212'})}
 
   context 'routes' do
@@ -26,7 +26,7 @@ describe ProfilesController do
 
       let(:user) {FactoryGirl.create(:user)}
       let(:profile) {FactoryGirl.create(:profile)}
-      let(:valid_attributes) {{:user_id => user.id, :profile => {:name => 'jim', :points => 311, :gender => 'male', :in_relationship_with => 'kim', :relationship_status => 'engaged', :anniversary => date, :age => 23, :city => 'denver', :state => 'CO', :user_id => 1}}}
+      let(:valid_attributes) {{:user_id => user.id, :profile => {:name => 'jim',:gender => 'male', :birthdate => date, :city => 'denver', :state => 'CO', :user_id => 1}}}
 
       it 'creates a new profile' do
         expect {post :create, valid_attributes}.to change(Profile, :count).by(1)
@@ -48,7 +48,7 @@ describe ProfilesController do
 
   context 'GET show' do 
     
-     let(:valid_attributes) {{:name => 'jim', :points => 311, :gender => 'male', :in_relationship_with => 'kim', :relationship_status => 'engaged', :anniversary => date, :age => 23, :city => 'denver', :state => 'CO', :user_id => 1}}
+     let(:valid_attributes) {{:name => 'jim',:gender => 'male', :birthdate => date, :city => 'denver', :state => 'CO', :user_id => 1}}
      let(:valid_parameters) {{:profile => valid_attributes}}
 
      before {get :show, {:id => profile.id}}
@@ -67,13 +67,13 @@ describe ProfilesController do
     let(:profile) {FactoryGirl.create(:profile)}
 
     context 'with valid parameters' do
-      let(:valid_attributes) {{:name => 'jim', :points => 400, :gender => 'male', :in_relationship_with => 'kim', :relationship_status => 'engaged', :anniversary => date, :age => 23, :city => 'denver', :state => 'CO', :user_id => 1}}
+      let(:valid_attributes) {{:name => 'jim',:gender => 'female', :birthdate => date, :city => 'denver', :state => 'CO', :user_id => 1}}
       let(:valid_parameters) {{:id => profile.id, :profile => valid_attributes}}
 
       before {put :update, valid_parameters}
 
       it 'updates the profile' do
-        Profile.find(profile.id).points.should eq valid_attributes[:points]
+        Profile.find(profile.id).gender.should eq valid_attributes[:gender]
       end
 
  #     it {should redirect_to profile_path(profile)}
