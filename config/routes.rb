@@ -2,7 +2,7 @@ Romantical::Application.routes.draw do
 
   devise_for :users
 
-  resources :identities
+
   resources :pictures
   resources :profiles
  
