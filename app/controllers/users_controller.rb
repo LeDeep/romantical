@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   
   def new
     @user = User.new
@@ -24,6 +25,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def create
+    @user = User.new(params[:user])
+
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+  end
 
   def edit
     @user = User.find(params[:id])
@@ -48,4 +64,5 @@ class UsersController < ApplicationController
   # end
 
     
+>>>>>>> master
 end

@@ -24,12 +24,7 @@ class IdentitiesController < ApplicationController
   # GET /identities/new
   # GET /identities/new.json
   def new
-    @identity = Identity.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @identity }
-    end
+    @identity = env['omniauth.identity']
   end
 
   # GET /identities/1/edit

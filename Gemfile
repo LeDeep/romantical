@@ -8,6 +8,7 @@ gem 'thin'
 gem 'pg'
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem "paperclip", "~> 3.0"
+gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem "omniauth-identity"
@@ -33,13 +34,13 @@ group :test, :development do
   gem 'rspec-rails'
   gem 'pry'
   gem 'pry-debugger'
-  gem 'capybara'
   gem 'launchy'
 end
 
 group :test do 
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :assets do
