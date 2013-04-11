@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(:version => 20130411233339) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.date     "birthdate"
-    t.integer  "couple_id"
     t.integer  "picture_id"
+    t.integer  "couple_id"
   end
 
   create_table "users", :force => true do |t|
