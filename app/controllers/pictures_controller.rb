@@ -6,9 +6,14 @@ class PicturesController < ApplicationController
 
 
   def create
-    @picture = Picture.create(params[:picture])
-    flash[:notice] = "Your picture was created."
-    redirect_to pictures_path 
+    #@picture = Picture.create(params[:picture])
+    @picture = current_user.build_picture(params[:picture])
+    if @picture.save
+      flash[:notice] = "Your picture was created."
+      redirect_to pictures_path 
+    else
+      render :new
+    end
   end
 
   def index
