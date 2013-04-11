@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411194111) do
+ActiveRecord::Schema.define(:version => 20130411233339) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "couple_id"
@@ -47,13 +47,14 @@ ActiveRecord::Schema.define(:version => 20130411194111) do
   end
 
   create_table "pictures", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.integer  "profile_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "user_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
   end
 
   create_table "profiles", :force => true do |t|
