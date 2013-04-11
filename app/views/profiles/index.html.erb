@@ -6,12 +6,8 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:points) %></th>
       <th><%= model_class.human_attribute_name(:gender) %></th>
-      <th><%= model_class.human_attribute_name(:in_relationship_with) %></th>
-      <th><%= model_class.human_attribute_name(:relationship_status) %></th>
-      <th><%= model_class.human_attribute_name(:anniversary) %></th>
-      <th><%= model_class.human_attribute_name(:age) %></th>
+      <th><%= model_class.human_attribute_name(:birthdate) %></th>
       <th><%= model_class.human_attribute_name(:city) %></th>
       <th><%= model_class.human_attribute_name(:state) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
@@ -22,12 +18,8 @@
       <tr>
         <td><%= link_to profile.id, profile_path(profile) %></td>
         <td><%= profile.name %></td>
-        <td><%= profile.points %></td>
         <td><%= profile.gender %></td>
-        <td><%= profile.in_relationship_with %></td>
-        <td><%= profile.relationship_status %></td>
-        <td><%= profile.anniversary %></td>
-        <td><%= profile.age %></td>
+        <td><%= profile.birthdate %></td>
         <td><%= profile.city %></td>
         <td><%= profile.state %></td>
 

@@ -70,7 +70,6 @@ feature 'Edit User' do
     fill_in "user_password", :with => user.password
     click_button "Sign in"
     click_link "Edit User"
-    visit edit_user_registration_path(user)   
     fill_in "user_username", :with => "Billiam"
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => user.password
@@ -86,7 +85,6 @@ feature 'Edit User' do
     fill_in "user_password", :with => user.password
     click_button "Sign in"
     click_link "Edit User"
-    visit edit_user_registration_path(user)   
     fill_in "user_username", :with => "Billiam"
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => "ddd"
@@ -94,6 +92,51 @@ feature 'Edit User' do
     fill_in "user_current_password", :with => user.password
     click_button "Update"
     page.should have_content 'Password is too short (minimum is 8 characters)'
+  end
+
+  scenario "won't update a user's password if password and password confirmation don't match" do 
+    visit new_user_session_path
+    fill_in "user_username", :with => user.username
+    fill_in "user_password", :with => user.password
+    click_button "Sign in"
+    click_link "Edit User"
+    fill_in "user_username", :with => "Billiam"
+    fill_in "user_email", :with => user.email
+    fill_in "user_password", :with => "asklhdfkashfs"
+    fill_in "user_password_confirmation", :with => "weoruewore"
+    fill_in "user_current_password", :with => user.password
+    click_button "Update"
+    page.should have_content "Password doesn't match confirmation"
+  end
+
+  scenario "won't update a user's password if current password is not entered" do 
+    visit new_user_session_path
+    fill_in "user_username", :with => user.username
+    fill_in "user_password", :with => user.password
+    click_button "Sign in"
+    click_link "Edit User"
+    fill_in "user_username", :with => "Billiam"
+    fill_in "user_email", :with => user.email
+    fill_in "user_password", :with => user.password
+    fill_in "user_password_confirmation", :with => user.password_confirmation
+    fill_in "user_current_password", :with => ''
+    click_button "Update"
+    page.should have_content "Current password can't be blank"
+  end
+
+  scenario "won't update a user's password if incorrect current password is entered" do 
+    visit new_user_session_path
+    fill_in "user_username", :with => user.username
+    fill_in "user_password", :with => user.password
+    click_button "Sign in"
+    click_link "Edit User"
+    fill_in "user_username", :with => "Billiam"
+    fill_in "user_email", :with => user.email
+    fill_in "user_password", :with => user.password
+    fill_in "user_password_confirmation", :with => user.password_confirmation
+    fill_in "user_current_password", :with => '23wewrwr2e234'
+    click_button "Update"
+    page.should have_content "Current password is invalid"
   end
 end
 
