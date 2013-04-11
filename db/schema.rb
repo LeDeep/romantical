@@ -13,34 +13,29 @@
 
 ActiveRecord::Schema.define(:version => 20130411194111) do
 
-  create_table "activities", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "assignments", :force => true do |t|
     t.integer  "couple_id"
-    t.integer  "activity_id"
     t.integer  "points"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "activity"
+    t.integer  "validity_period"
   end
 
   create_table "compensations", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "activity_id"
+    t.integer  "profile_id"
+    t.integer  "assignment_id"
     t.integer  "points"
-    t.date     "expiration"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.date     "date_of_occurrence"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "couples", :force => true do |t|
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.date     "anniversary"
-    t.string   "relationship_status"
+    t.string   "status"
   end
 
   create_table "messages", :force => true do |t|
@@ -61,15 +56,6 @@ ActiveRecord::Schema.define(:version => 20130411194111) do
     t.datetime "updated_at",           :null => false
   end
 
-  create_table "points", :force => true do |t|
-    t.integer  "user_id"
-    t.string   "activity"
-    t.integer  "partner_id"
-    t.integer  "activty_value"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "profiles", :force => true do |t|
     t.string   "name"
     t.string   "gender"
@@ -79,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130411194111) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.date     "birthdate"
+    t.integer  "couple_id"
     t.integer  "picture_id"
   end
 
@@ -102,8 +89,6 @@ ActiveRecord::Schema.define(:version => 20130411194111) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "username"
-    t.integer  "couple_id"
-    t.integer  "partner_id"
     t.integer  "picture_id"
   end
 

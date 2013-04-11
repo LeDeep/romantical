@@ -14,6 +14,13 @@ FactoryGirl.define do
     end
   end
 
+  factory :picture do 
+    picture_file_name 'Steve'
+    picture_content_type 'image/jpg'
+    picture_file_size 1
+    picture_updated_at '2013-04-05'   
+    user_id 1
+  end
 
   factory :profile do 
     name 'Steve'
@@ -22,14 +29,26 @@ FactoryGirl.define do
     city 'chicago'
     state 'IL'
     user_id 1
+    couple_id 1
   end
 
-  factory :picture do 
-    picture_file_name 'Steve'
-    picture_content_type 'image/jpg'
-    picture_file_size 1
-    picture_updated_at '2013-04-05'   
+  factory :assignment do 
+    points 5
+    activity 'mow the lawn'
+    validity_period 30
+    couple_id 1
+  end
+
+  factory :compensation do 
+    points 5
+    date_of_occurrence '2000-06-16'
     user_id 1
+    assignment_id 1
+  end
+
+    factory :couple do 
+      anniversary '2000-06-16'
+      status "engaged"
   end
 
 end

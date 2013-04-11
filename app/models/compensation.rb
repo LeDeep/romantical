@@ -1,13 +1,10 @@
 class Compensation < ActiveRecord::Base
 
-  validates :user_id, :activity_id, :points, :expiration, :presence => true
+  validates :profile_id, :assignment_id, :points, :date_of_occurrence, :presence => true
 
-  attr_accessible :user_id, :activity_id, :points, :expiration
+  attr_accessible :profile_id, :assignment_id, :points, :date_of_occurrence
 
-  belongs_to :activity
-  belongs_to :user
-
-
-
+  belongs_to :assignment
+  belongs_to :profile
 
 end

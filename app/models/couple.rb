@@ -1,13 +1,10 @@
 class Couple < ActiveRecord::Base
 
-  validates :anniversary, :relationship_status, :presence => true
+  validates :anniversary, :status, :presence => true
 
-  attr_accessible :anniversary, :relationship_status
+  attr_accessible :anniversary, :status
 
-  has_many :users
+  has_many :profiles
   has_many :assignments
-
-
-
 
 end

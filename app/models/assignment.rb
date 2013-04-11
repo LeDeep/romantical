@@ -1,6 +1,7 @@
 class Assignment < ActiveRecord::Base
-  validates :couple_id, :activity_id, :points, :presence => true
-  attr_accessible :couple_id, :activity_id, :points
+  validates :couple_id, :activity, :points, :presence => true
+  attr_accessible :couple_id, :activity, :points
+
   belongs_to(:couple)
-  belongs_to(:activity)
+  has_many :compensations
 end

@@ -29,7 +29,8 @@ describe ProfilesController do
       let(:valid_attributes) {{:user_id => user.id, :profile => {:name => 'jim',:gender => 'male', :birthdate => date, :city => 'denver', :state => 'CO', :user_id => 1}}}
 
       it 'creates a new profile' do
-        expect {post :create, valid_attributes}.to change(Profile, :count).by(1)
+        user1 = user
+        expect {post :create, {:user_id => user1.id, :profile => {:name => 'jim',:gender => 'male', :birthdate => date, :city => 'denver', :state => 'CO'}}}.to change(Profile, :count).by(1)
       end
 
       before {post :create, valid_attributes}
