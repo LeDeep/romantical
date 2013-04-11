@@ -25,6 +25,6 @@ class Profile < ActiveRecord::Base
   end
 
   def age
-    Date.today.year - self.birthdate.year
+    Date.today.year - self.birthdate.try(:year)
   end
 end

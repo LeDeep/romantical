@@ -1,0 +1,33 @@
+<%- model_class = Message -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:from) %></th>
+      <th><%= model_class.human_attribute_name(:to) %></th>
+      <th><%= model_class.human_attribute_name(:body) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each do |message| %>
+      <tr>
+        <td><%= link_to message.id, messages_path(message) %></td>
+        <td><%= message.from %></td>
+        <td><%= message.to %></td>
+        <td><%= message.body %></td>
+
+        <td><%=l message.created_at %></td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<%= link_to t('.new', :default => t("helpers.links.add_message")),
+            new_message_path,
+            :class => 'btn btn-primary' %>

@@ -2,7 +2,7 @@ Romantical::Application.routes.draw do
 
   devise_for :users
 
-
+  resources :messages, :except => [:show, :destroy, :update]
   resources :pictures
   resources :profiles
   resources :couples

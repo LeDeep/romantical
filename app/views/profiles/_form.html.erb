@@ -1,38 +1,25 @@
-<%= form_for @profile, :html => { :class => 'form-horizontal' } do |f| %>
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :name, :class => 'text_field' %>
-    </div>
+<% if @profile.errors.any? %>
+  <div class="alert alert-error">
+    <h3>Please correct these problems:</h3>
+    <ul>
+      <% @profile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
-  <div class="control-group">
-    <%= f.label :gender, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :gender, :class => 'text_field' %>
-    </div>
-  </div>
-   <div class="control-group">
-    <%= f.label :birthdate, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :birthdate, :class => 'text_field' %>
-    </div>
-  </div>
-    <div class="control-group">
-    <%= f.label :city, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :city, :class => 'text_field' %>
-    </div>
-  </div>
-    <div class="control-group">
-    <%= f.label :state, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :state, :class => 'text_field' %>
-    </div>
-  </div>
+<% end %>
 
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                profiles_path, :class => 'btn' %>
-  </div>
+<%= form_for @profile do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :gender %>
+  <%= f.text_field :gender %>
+  <%= f.label :birthdate %>
+  <%= f.date_select :birthdate %>
+  <%= f.label :city %>
+  <%= f.text_field :city %>
+  <%= f.label :state %>
+  <%= f.text_field :state %>
+
+  <%= f.submit :class => 'btn btn-primary' %>
 <% end %>

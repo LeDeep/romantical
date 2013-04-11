@@ -76,7 +76,7 @@ describe ProfilesController do
         Profile.find(profile.id).gender.should eq valid_attributes[:gender]
       end
 
- #     it {should redirect_to profile_path(profile)}
+      it {should redirect_to profile_path(profile)}
       it {should set_the_flash[:notice]}
     end
 

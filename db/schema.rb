@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410230800) do
+ActiveRecord::Schema.define(:version => 20130411194111) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(:version => 20130410230800) do
     t.string   "relationship_status"
   end
 
+  create_table "messages", :force => true do |t|
+    t.string   "to"
+    t.string   "from"
+    t.text     "body"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "pictures", :force => true do |t|
     t.string   "picture_file_name"
     t.string   "picture_content_type"
@@ -71,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130410230800) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.date     "birthdate"
+    t.integer  "picture_id"
   end
 
   create_table "users", :force => true do |t|
@@ -95,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20130410230800) do
     t.string   "username"
     t.integer  "couple_id"
     t.integer  "partner_id"
+    t.integer  "picture_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
