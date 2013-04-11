@@ -5,6 +5,7 @@ Romantical::Application.routes.draw do
 
   resources :pictures
   resources :profiles
+  resources :couples
  
   root to: 'profiles#index'
 

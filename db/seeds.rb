@@ -13,17 +13,12 @@ users = User.create([
   {email: 'sue', username: 'sue', password: '1234abcd', password_confirmation: '1234abcd'}])
 
 profiles = [
-  {name: 'joe', points: 0, gender: 'male', in_relationship_with: 'sam', relationship_status: 'dating',
-   anniversary: '2013-04-04', age: 16, city: 'sacramento', state: 'ca'},
-  {name: 'sam', points: 0, gender: 'female', in_relationship_with: 'joe', relationship_status: 'dating',
-   anniversary: '2013-04-04', age: 16, city: 'sacramento', state: 'ca'},
-  {name: 'jane', points: 0, gender: 'female', in_relationship_with: 'sue', relationship_status: 'engaged',
-   anniversary: '2013-04-04', age: 16, city: 'sacramento', state: 'ca'},
-  {name: 'sue', points: 0, gender: 'male', in_relationship_with: 'jane', relationship_status: 'engaged',
-   anniversary: '2013-04-04', age: 16, city: 'sacramento', state: 'ca'}]
+  {name: 'joe', gender: 'male', city: 'sacramento', state: 'ca', birthdate: '1985-02-02'},
+  {name: 'sam', gender: 'female', city: 'sacramento', state: 'ca', birthdate: '1985-02-02'},
+  {name: 'jane', gender: 'female', city: 'sacramento', state: 'ca', birthdate: '1985-02-02'},
+  {name: 'sue', gender: 'male', city: 'sacramento', state: 'ca', birthdate: '1985-02-02'}]
 
 
 users.each_with_index do |user, i|
   profile = user.create_profile(profiles[i])
-  profile.update_attribute(:points, 0)
 end

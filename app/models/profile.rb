@@ -5,4 +5,24 @@ class Profile < ActiveRecord::Base
   
 
   belongs_to :user
+
+  def points
+    Compensation.where("user_id" => self.user_id).sum("points")
+  end
+
+  def in_relationship_with
+    self.user.try(:partner).try(:name)
+  end
+
+  def relationship_status
+    self.user.try(:couple).try(:relationship_status)
+  end
+
+  def anniversary
+    self.user.try(:couple).try(:anniversary)
+  end
+
+  def age
+    Time.now - self.user.try(:birthdate)
+  end
 end

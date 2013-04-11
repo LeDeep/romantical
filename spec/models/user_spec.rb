@@ -20,7 +20,7 @@ describe User do
     it {should have_one(:picture)}
     it {should have_many(:compensations)}
     it {should belong_to(:couple)}
-    it {should have_one(:partner).class_name(:user).through(:couple)}
+    it {should belong_to(:partner).class_name('User')}
   end
 
 end
