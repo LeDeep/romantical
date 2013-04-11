@@ -5,8 +5,9 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = Profile.new(params[:profile])
-
+    
+    # profile1 = Profile.new(params[:profile])
+    @profile = User.find(devise[:user_id]).build_profile(params[:profile])
     if @profile.save
       # session[:user_id] = @user.id
       redirect_to profiles_path, notice: "You have created your profile!"

@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe CouplesController do
-  let(:user1) {FactoryGirl.create(:user)}
-  let(:user2) {FactoryGirl.create(:user)}
-  let(:valid_session) {{'user_id' => user1.id}}
-  let(:invalid_session) {{"user_id" => ""}}
  
 
   context 'routes' do 
@@ -18,15 +14,23 @@ describe CouplesController do
 
 
   context 'GET new' do
-    context 'valid_sesssion' do 
-      before {get :new, {}, valid_session}
-      it {should render_template :new}
+    let(:user1) {FactoryGirl.create(:user)}
+    # let(:user2) {FactoryGirl.create(:user)}
+    let(:valid_session) {{'user_id' => user1.id}}
+    let(:invalid_session) {{"user_id" => ""}}
+
+    context 'valid_sesssion' do
+      it 'renders new couple template' do
+        # user = FactoryGirl.create(:user)
+        get :new, {}, 'user_id' => user1.id
+        should render_template :new
+      end
     end
     
-    context 'invalid_session' do 
-      before {get :new, {}, invalid_session}
-      it {should redirect_to root_path}
-    end
+    # context 'invalid_session' do 
+    #   before {get :new, {}, invalid_session}
+    #   it {should redirect_to root_path}
+    # end
   end
 
   context 'POST create' do

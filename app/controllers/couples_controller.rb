@@ -1,7 +1,7 @@
 class CouplesController < ApplicationController
 
   def new
-    if user_signed_in?
+    if current_user
       render :new
     else
       redirect_to root_path

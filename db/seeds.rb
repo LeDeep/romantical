@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-users = User.create([
-  {email: 'joe', username: 'joe', password: '1234abcd', password_confirmation: '1234abcd'},
-  {email: 'sam', username: 'sam', password: '1234abcd', password_confirmation: '1234abcd'},
-  {email: 'jane', username: 'jane', password: '1234abcd', password_confirmation: '1234abcd'},
-  {email: 'sue', username: 'sue', password: '1234abcd', password_confirmation: '1234abcd'}])
+users = User.create!([
+  {email: 'validatethis1@proper.com', username: 'joe', password: '1234abcd', password_confirmation: '1234abcd'},
+  {email: 'validatethis2@proper.com', username: 'sam', password: '1234abcd', password_confirmation: '1234abcd'},
+  {email: 'validatethis3@proper.com', username: 'jane', password: '1234abcd', password_confirmation: '1234abcd'},
+  {email: 'validatethis4@proper.com', username: 'sue', password: '1234abcd', password_confirmation: '1234abcd'}])
 
 profiles = [
   {name: 'joe', gender: 'male', city: 'sacramento', state: 'ca', birthdate: '1985-02-02'},
@@ -20,5 +20,5 @@ profiles = [
 
 
 users.each_with_index do |user, i|
-  profile = user.create_profile(profiles[i])
+  profile = user.create_profile!(profiles[i])
 end

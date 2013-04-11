@@ -6,6 +6,8 @@ class Profile < ActiveRecord::Base
 
   belongs_to :user
 
+
+
   def points
     Compensation.where("user_id" => self.user_id).sum("points")
   end
@@ -23,6 +25,6 @@ class Profile < ActiveRecord::Base
   end
 
   def age
-    Time.now - self.user.try(:birthdate)
+    Date.today.year - self.birthdate.year
   end
 end
