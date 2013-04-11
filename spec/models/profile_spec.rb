@@ -24,10 +24,17 @@ describe Profile do
 
   context 'asscociations' do
     it {should belong_to :user}
+    it {should belong_to(:couple)}
+    it {should have_many(:compensations)}
+    # it {should belong_to(:partner).class_name('User')}
   end
 
   context 'points' do
-    it 'returns a users points' 
+    it 'returns a profiles partner'
+  end
+
+  context 'points' do
+    it 'returns a profiles points' 
     
   end
 
@@ -44,6 +51,6 @@ describe Profile do
   end
 
   context 'age' do
-    it 'returns user age'
+    it 'returns profiles age'
   end
 end

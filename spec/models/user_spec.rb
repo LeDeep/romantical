@@ -18,9 +18,6 @@ describe User do
   context 'associations' do 
     it {should have_one(:profile)}
     it {should have_one(:picture)}
-    it {should have_many(:compensations)}
-    it {should belong_to(:couple)}
-    it {should belong_to(:partner).class_name('User')}
   end
 
 end

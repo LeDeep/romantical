@@ -5,7 +5,9 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    
+    # profile1 = Profile.new(params[:profile])
+    # user = User.find(params[:user_id])
+    # if @profile = user.create_profile!(params[:profile])
     #@profile = Profile.new(params[:profile])
     @profile = current_user.build_profile(params[:profile])
     #@profile = User.find(session[:user_id]).build_profile(params[:profile])

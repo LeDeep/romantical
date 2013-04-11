@@ -15,9 +15,6 @@ class User < ActiveRecord::Base
 
   has_one :profile
   has_one :picture
-  belongs_to :couple
-  belongs_to :partner, :foreign_key => :partner_id, :class_name => 'User', :inverse_of => :partner
-  has_many :compensations
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
