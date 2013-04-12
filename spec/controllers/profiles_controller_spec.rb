@@ -4,7 +4,7 @@ describe ProfilesController do
 
  let(:date) {Date.today}
  let(:profile) {Profile.create({:name => 'jim',:gender => 'male', :birthdate => date, :city => 'denver', :state => 'CO', :user_id => 1})}
- let(:user) {User.create({:email => 'whatever@email.com', :password => 'reallgreat231212', :password_confirmation => 'reallgreat231212'})}
+ # let(:user) {User.create({:email => 'whatever@email.com', :password => 'reallgreat231212', :password_confirmation => 'reallgreat231212'})}
 
   context 'routes' do
     it {should route(:get, '/profiles/new').to :action => :new}
@@ -33,11 +33,14 @@ describe ProfilesController do
         expect {post :create, {:user_id => user1.id, :profile => {:name => 'jim',:gender => 'male', :birthdate => date, :city => 'denver', :state => 'CO'}}}.to change(Profile, :count).by(1)
       end
 
-      before {post :create, valid_attributes}
+      it 'creates a new profile' do
+        user1 = user
+        post :create, {:user_id => user1.id, :profile => {:name => 'jim',:gender => 'male', :birthdate => date, :city => 'denver', :state => 'CO'}}
 
-      it {should redirect_to profiles_path}
-      # it {should redirect_to profile_path(@profile)}
-      it {should set_the_flash[:notice]}
+        should redirect_to profiles_path
+        # it {should redirect_to profile_path(@profile)}
+        should set_the_flash[:notice]
+      end
     end
   end
 
