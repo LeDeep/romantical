@@ -4,6 +4,9 @@ class Profile < ActiveRecord::Base
   attr_accessible :name, :gender, :birthdate, :city, :state, :user_id
 
   belongs_to :user
+
+  has_many :pictures
+
   belongs_to :couple
   # belongs_to :partner, :foreign_key => :partner_id, :class_name => 'User', :inverse_of => :partner
   has_many :compensations
@@ -13,6 +16,7 @@ class Profile < ActiveRecord::Base
       Profile.where("id" => self.couple.profiles.where(:profile_id != self.id))
     end
   end
+
 
   def points
     Compensation.where("user_id" => self.user_id).sum("points")

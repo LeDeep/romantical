@@ -16,8 +16,9 @@
               Logged in as <b><%= current_user.username %></b>.
               <%= link_to "Logout", destroy_user_session_path, method: :delete %>
               <%= link_to "Edit User", edit_user_registration_path %>
-              <%= link_to "Profile", edit_profile_path(current_user) %>
+              <%= link_to "Edit Profile", edit_profile_path(current_user) %>
               <%= link_to "Messages", messages_path(current_user) %> 
+              <%= link_to "Pictures", pictures_path(current_user) %>
           
       <% else %>
         <%= link_to "Sign up", new_user_registration_path %> |
