@@ -140,44 +140,44 @@ feature 'Edit User' do
   end
 end
 
-feature 'Edit Profile' do 
-  let(:user) {FactoryGirl.create(:user)}
-  # let(:profile) {FactoryGirl.create(:profile)}
-  scenario "it edits a users profile with a different name" do
-    visit new_user_session_path
-    fill_in "user_username", :with => user.username
-    fill_in "user_password", :with => user.password
-    click_button "Sign in"
-    click_link "Edit Profile"
-    fill_in "profile_name", :with => "Billiam"
-    fill_in "profile_points", :with => profile.points
-    fill_in "profile_gender", :with => profile.gender
-    fill_in "profile_in_relationship_with", :with => profile.in_relationship_with
-    fill_in "profile_relationship_status", :with => profile.relationship_status
-    fill_in "profile_anniversary", :with => profile.anniversary
-    fill_in "profile_age", :with => profile.age
-    fill_in "profile_city", :with => profile.city
-    fill_in "profile_state", :with => profile.state
-    click_button "Update Profile"
-    page.should have_content 'You updated your profile successfully.'
-  end
+# feature 'Edit Profile' do 
+#   let(:user) {FactoryGirl.create(:user)}
+#   # let(:profile) {FactoryGirl.create(:profile)}
+#   scenario "it edits a users profile with a different name" do
+#     visit new_user_session_path
+#     fill_in "user_username", :with => user.username
+#     fill_in "user_password", :with => user.password
+#     click_button "Sign in"
+#     click_link "Edit User"
+#     fill_in "profile_name", :with => "Billiam"
+#     fill_in "profile_points", :with => profile.points
+#     fill_in "profile_gender", :with => profile.gender
+#     fill_in "profile_in_relationship_with", :with => profile.in_relationship_with
+#     fill_in "profile_relationship_status", :with => profile.relationship_status
+#     fill_in "profile_anniversary", :with => profile.anniversary
+#     fill_in "profile_age", :with => profile.age
+#     fill_in "profile_city", :with => profile.city
+#     fill_in "profile_state", :with => profile.state
+#     click_button "Update Profile"
+#     page.should have_content 'You updated your profile successfully.'
+#   end
 
-  scenario "won't update a user's profile if its name field is empty" do 
-    visit new_user_session_path
-    fill_in "user_username", :with => user.username
-    fill_in "user_password", :with => user.password
-    click_button "Sign in"
-    click_link "Edit Profile"
-    fill_in "profile_name", :with => ""
-    fill_in "profile_points", :with => profile.points
-    fill_in "profile_gender", :with => profile.gender
-    fill_in "profile_in_relationship_with", :with => profile.in_relationship_with
-    fill_in "profile_relationship_status", :with => profile.relationship_status
-    fill_in "profile_anniversary", :with => profile.anniversary
-    fill_in "profile_age", :with => profile.age
-    fill_in "profile_city", :with => profile.city
-    fill_in "profile_state", :with => profile.state   
-    click_button "Update Profile"
-    page.should have_content 'Your profile was not updated - invalid input.'
-  end
-end
+#   scenario "won't update a user's profile if its name field is empty" do 
+#     visit new_user_session_path
+#     fill_in "user_username", :with => user.username
+#     fill_in "user_password", :with => user.password
+#     click_button "Sign in"
+#     click_link "Edit Profile"
+#     fill_in "profile_name", :with => ""
+#     fill_in "profile_points", :with => profile.points
+#     fill_in "profile_gender", :with => profile.gender
+#     fill_in "profile_in_relationship_with", :with => profile.in_relationship_with
+#     fill_in "profile_relationship_status", :with => profile.relationship_status
+#     fill_in "profile_anniversary", :with => profile.anniversary
+#     fill_in "profile_age", :with => profile.age
+#     fill_in "profile_city", :with => profile.city
+#     fill_in "profile_state", :with => profile.state   
+#     click_button "Update Profile"
+#     page.should have_content 'Your profile was not updated - invalid input.'
+#   end
+# end
