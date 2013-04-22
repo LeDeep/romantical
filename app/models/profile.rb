@@ -16,6 +16,7 @@ class Profile < ActiveRecord::Base
       Profile.where("id" => self.couple.profiles.where(:profile_id != self.id))
     end
   end
+>>>>>>> master
 
 
   def points
