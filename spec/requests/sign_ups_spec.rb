@@ -8,7 +8,7 @@ feature 'Sign up' do
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => user.password
     fill_in "user_password_confirmation", :with => user.password_confirmation
-    click_button "Sign up"
+    click_button "Create Account"
     page.should have_content 'Welcome! You have signed up successfully.'
   end
 end
@@ -21,7 +21,7 @@ feature 'invalid sign up' do
     fill_in "user_email", :with => ""
     fill_in "user_password", :with => user.password
     fill_in "user_password_confirmation", :with => user.password_confirmation
-    click_button "Sign up"
+    click_button "Create Account"
     page.should have_content "Email can't be blank"
   end
 end
@@ -33,7 +33,7 @@ feature 'Sign in' do
     visit new_user_session_path
     fill_in "user_username", :with => user.username
     fill_in "user_password", :with => user.password
-    click_button "Sign in"
+    click_button "Log in"
     page.should have_content 'Signed in successfully.'
   end
 end
@@ -44,7 +44,7 @@ feature 'invalid sign in' do
     visit new_user_session_path
     fill_in "user_username", :with => "incorrect"
     fill_in "user_password", :with => user.password
-    click_button "Sign in"
+    click_button "Log in"
     page.should have_content 'Invalid username or password.'
   end
 end
@@ -55,8 +55,8 @@ feature 'Sign out' do
     visit new_user_session_path
     fill_in "user_username", :with => user.username
     fill_in "user_password", :with => user.password
-    click_button "Sign in"
-    click_link "Logout"
+    click_button "Log in"
+    click_link "Log out"
     page.should have_content 'Signed out successfully.'
   end
 end
@@ -68,8 +68,8 @@ feature 'Edit User' do
     visit new_user_session_path
     fill_in "user_username", :with => user.username
     fill_in "user_password", :with => user.password
-    click_button "Sign in"
-    click_link "Edit User"
+    click_button "Log in"
+    click_link "Edit account"
     fill_in "user_username", :with => "Billiam"
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => user.password
@@ -83,8 +83,8 @@ feature 'Edit User' do
     visit new_user_session_path
     fill_in "user_username", :with => user.username
     fill_in "user_password", :with => user.password
-    click_button "Sign in"
-    click_link "Edit User"
+    click_button "Log in"
+    click_link "Edit account"
     fill_in "user_username", :with => "Billiam"
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => "ddd"
@@ -98,8 +98,8 @@ feature 'Edit User' do
     visit new_user_session_path
     fill_in "user_username", :with => user.username
     fill_in "user_password", :with => user.password
-    click_button "Sign in"
-    click_link "Edit User"
+    click_button "Log in"
+    click_link "Edit account"
     fill_in "user_username", :with => "Billiam"
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => "asklhdfkashfs"
@@ -113,8 +113,8 @@ feature 'Edit User' do
     visit new_user_session_path
     fill_in "user_username", :with => user.username
     fill_in "user_password", :with => user.password
-    click_button "Sign in"
-    click_link "Edit User"
+    click_button "Log in"
+    click_link "Edit account"
     fill_in "user_username", :with => "Billiam"
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => user.password
@@ -128,8 +128,8 @@ feature 'Edit User' do
     visit new_user_session_path
     fill_in "user_username", :with => user.username
     fill_in "user_password", :with => user.password
-    click_button "Sign in"
-    click_link "Edit User"
+    click_button "Log in"
+    click_link "Edit account"
     fill_in "user_username", :with => "Billiam"
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => user.password
