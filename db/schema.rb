@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411233339) do
+ActiveRecord::Schema.define(:version => 20130422224204) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "couple_id"
@@ -46,28 +46,20 @@ ActiveRecord::Schema.define(:version => 20130411233339) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "pictures", :force => true do |t|
-    t.integer  "user_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-    t.integer  "profile_id"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
-  end
-
   create_table "profiles", :force => true do |t|
     t.string   "name"
     t.string   "gender"
     t.string   "city"
     t.string   "state"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.date     "birthdate"
     t.integer  "couple_id"
-    t.integer  "picture_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -90,7 +82,6 @@ ActiveRecord::Schema.define(:version => 20130411233339) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "username"
-    t.integer  "picture_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

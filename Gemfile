@@ -7,14 +7,11 @@ gem 'thin'
 
 gem 'pg'
 gem 'bootstrap-sass', '~> 2.3.1.0'
-gem "paperclip", "~> 3.0"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'omniauth-twitter'
 gem "omniauth-identity"
 gem "foreman"
-gem 'forward'
-gem "paperclip", "~> 3.0"
 
 # Gems used only for assets and not required
 # in production environments by default.

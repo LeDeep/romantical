@@ -1,28 +1,36 @@
+<div class="span12" style="text-align:left; padding-bottom:30px">
+  <h2> Romantical makes it easy for couples to stay romantic. </h2>
+  <h3> Do stuff. Earn Points. Be happy. </h3>
 
-Hi!
+  <div style="font-size:4px; line-height:15px">
 
-<div class="container">
-  <% provide :title, "Romantical" %>
+  </div>
 
-  <h1><%= yield :title %></h1>
+  <br />
 
-  <div class="row">
-    <div class="span10 offset1">
-
-<!--       <form class="well form-search">
-
-        <input type="text" class="input-medium search-query">
-        <input type="text" class="input-medium search-query">
-
-        <button type="submit" class="btn">Search</button>
-      </form> -->
+ <div class="row">
+        <div class="span4">
+          <h2>Track Activities</h2>
+          <p>Romantical creates a place where you and your partner can post all the activities you do together. Keep track of all the fun things you and your partner do. And get ideas for new activities the two of you can engage in. </p>
+        </div>
+        <div class="span4">
+          <h2>Earn Points</h2>
+          <p>Ever felt underappreciated for when you do something nice for your partner? With Romantical, you'll never feel that way again. Earn points for every nice thing you do for your partner. Points accummulate over time and you can see just how romantic you really are.</p>
+        </div>
+        <div class="span4">
+          <h2>The Doghouse</h2>
+          <p>When you feel like your partner hasn't been pulling their weight, put them in the doghouse. You can then set the amount of points your partner will need to accummlate to get out of the doghouse.</p>
+        </div>
+      </div>
     </div>
-  </div>   
 
+     <div>
+    <% if current_user %>
+      <%= button_to "Learn More", root_path, :method => "get", :class => "btn btn-large btn-success"%>
+    <% else %>
+      <%= button_to "Learn More", root_path, :method => "get", :class => "btn btn-large btn-success"%>
 
-        
-  <table>
-    <tr><td><%= link_to "User Profiles", profiles_path %></td></tr>
-  </table>    
+      <%= button_to "Get Romantical!", new_user_registration_path, :method => "get", :class => "btn btn-large btn-primary"%>
+    <% end %>
+  </div>
 </div>
-

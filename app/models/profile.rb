@@ -1,22 +1,27 @@
 class Profile < ActiveRecord::Base
 
   validates :name, :gender, :birthdate, :city, :state, :user_id, :presence => true
-  attr_accessible :name, :gender, :birthdate, :city, :state, :user_id
+  attr_accessible :avatar, :name, :gender, :birthdate, :city, :state, :user_id
+
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+
 
   belongs_to :user
 
-  has_many :pictures
 
   belongs_to :couple
   # belongs_to :partner, :foreign_key => :partner_id, :class_name => 'User', :inverse_of => :partner
   has_many :compensations
+
+  validates_attachment_size :avatar, :less_than => 2.megabytes
+  validates_attachment_content_type :avatar, :content_type => ['image/jpg', 'image/jpeg', 'image/png', 'image/gif']
+
 
   def partner
     if self.couple then
       Profile.where("id" => self.couple.profiles.where(:profile_id != self.id))
     end
   end
->>>>>>> master
 
 
   def points

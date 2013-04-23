@@ -14,13 +14,6 @@ FactoryGirl.define do
     end
   end
 
-  factory :picture do 
-    picture_file_name 'Steve'
-    picture_content_type 'image/jpg'
-    picture_file_size 1
-    picture_updated_at '2013-04-05'   
-    user_id 1
-  end
 
   factory :profile do 
     name 'Steve'

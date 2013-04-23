@@ -1,53 +1,35 @@
 class ProfilesController < ApplicationController
 
-  def new
-    @profile = Profile.new
-  end
+  # def new
+  #   @profile = Profile.new
+  # end
 
-  def create
-    # profile1 = Profile.new(params[:profile])
-    user = User.find(params[:user_id])
-    if @profile = user.create_profile!(params[:profile])
-    # @profile = Profile.new(params[:profile])
-    # @profile = current_user.build_profile(params[:profile])
-    #@profile = User.find(session[:user_id]).build_profile(params[:profile])
-    # if @profile.save
-      # session[:user_id] = @user.id
-      redirect_to profiles_path, notice: "You have created your profile!"
-      # redirect_to profile_path(@profile), notice: "You have created your profile!"
-    else
-      flash.now[:alert] = "There were errors."
-      render :new
-    end
-  end
+  # def create
+  #   @profile = current_user.profile.new(params[:profile])
+  #   if @profile.save
+  #     redirect_to profile_path(current_user), notice: "You have created your profile!"
+  #   else
+  #     flash.now[:alert] = "There were errors."
+  #     render :new
+  #   end
+  # end
  
-  def index
-    @profiles = Profile.all
-  end
 
   def show
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    @profile = current_user.profile
     if @profile.update_attributes(params[:profile])
-      flash[:notice] = "You have successsfully updated your profile."
-      redirect_to profile_path(@profile)
+      redirect_to profile_path(@profile), :notice => "You have successsfully updated your profile."
     else
       flash[:alert] = "Your profile was not updated - invalid input."
       render :edit
     end
-  end
-
-  def destroy
-    @profile = Profile.find(params[:id])
-    @profile.destroy
-    flash[:notice] = "Your profile was successfully deleted."
-    redirect_to root_path
   end
 end

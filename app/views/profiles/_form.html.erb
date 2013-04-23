@@ -1,25 +1,24 @@
-<% if @profile.errors.any? %>
-  <div class="alert alert-error">
-    <h3>Please correct these problems:</h3>
-    <ul>
-      <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= flash[:notice] %>
+<%= flash[:alert] %>
 
-<%= form_for @profile do |f| %>
+
+<h3><% current_user.username %></h3>
+
+
+<%= form_for @profile, :url => profile_path(current_user), :html => { :multipart => true } do |f| %>
+  <%= f.file_field :avatar %>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <%= f.label :gender %>
   <%= f.text_field :gender %>
   <%= f.label :birthdate %>
-  <%= f.date_select :birthdate %>
+  <%= f.text_field :birthdate %>
   <%= f.label :city %>
-  <%= f.text_field :city %>
+  <%= f.text_area :city %>
   <%= f.label :state %>
-  <%= f.text_field :state %>
-
-  <%= f.submit :class => 'btn btn-primary' %>
+  <%= f.text_area :state %>
+  <%= f.submit nil, :class => 'btn btn-primary' %>
 <% end %>
+
+<p><%= link_to 'Cancel', profile_path, :class => 'btn' %></p>
+
