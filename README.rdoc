@@ -7,6 +7,9 @@ Romantical was started as an Epicodus class project, and is currently a work in 
 Romantical was worked on over 2.5 days during week 8 of Epicodus. Team members included:
 
 Deep Marreddy https://github.com/LeDeep
+
 Peter Lowry https://github.com/pjlowry
+
 Thomas Hopkins https://github.com/thomashopkins
+
 Diane Wilkins https://github.com/lizwilkins
