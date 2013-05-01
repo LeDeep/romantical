@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422224204) do
+ActiveRecord::Schema.define(:version => 20130501222317) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "couple_id"
@@ -47,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20130422224204) do
   end
 
   create_table "profiles", :force => true do |t|
-    t.string   "name"
     t.string   "gender"
     t.string   "city"
     t.string   "state"
@@ -60,15 +59,14 @@ ActiveRecord::Schema.define(:version => 20130422224204) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "users", :force => true do |t|
     t.string   "name"
-    t.string   "password_digest"
     t.string   "provider"
     t.string   "uid"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false

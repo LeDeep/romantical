@@ -1,12 +1,11 @@
 class Profile < ActiveRecord::Base
 
-  validates :name, :gender, :birthdate, :city, :state, :user_id, :presence => true
-  attr_accessible :avatar, :name, :gender, :birthdate, :city, :state, :user_id
+  attr_accessible :first_name, :last_name, :gender, :city, :state, :birthdate, :user_id
+  belongs_to :user
+
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 
-
-  belongs_to :user
 
 
   belongs_to :couple

@@ -16,11 +16,7 @@
   <%= f.password_field :password_confirmation %></div>
 
 
-  <div><%= f.submit "Create Account", :class => "btn btn-medium btn-primary" %></div> <h2> or </h2>
+  <div><%= f.submit "Sign up" %></div>
 <% end %>
 
-<%- if devise_mapping.omniauthable? %>
-  <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= button_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider), :class => "btn btn-medium" %><br />
-  <% end -%>
-<% end -%>
+<%= render "devise/shared/links" %>

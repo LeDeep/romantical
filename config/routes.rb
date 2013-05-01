@@ -8,6 +8,7 @@ Romantical::Application.routes.draw do
   resources :messages, :except => [:show, :destroy, :update]
   resources :profiles, :only => [:show, :edit, :update]
   resources :couples
+  resources :pictures
 
 
   root to: 'home#index'

@@ -8,7 +8,7 @@ feature 'Sign up' do
     fill_in "user_email", :with => user.email
     fill_in "user_password", :with => user.password
     fill_in "user_password_confirmation", :with => user.password_confirmation
-    click_button "Create Account"
+    click_button "Sign up"
     page.should have_content 'Welcome! You have signed up successfully.'
   end
 end
@@ -21,7 +21,7 @@ feature 'invalid sign up' do
     fill_in "user_email", :with => ""
     fill_in "user_password", :with => user.password
     fill_in "user_password_confirmation", :with => user.password_confirmation
-    click_button "Create Account"
+    click_button "Sign up"
     page.should have_content "Email can't be blank"
   end
 end
