@@ -1,1 +1,12 @@
 Romantical is an app for couples that measures the ‘romance’ in a relationship. Each partner is able to accrue points by doing something nice for their significant other. For example, you get points by making dinner or buying a present. Couples can earn points as well for doing things together such as bike rides or vacations. Points are then tracked for each partner, as well as the couple itself.
+
+
+
+Romantical was started as an Epicodus class project, and is currently a work in progress.
+
+Romantical was worked on over 2.5 days during week 8 of Epicodus. Team members included:
+
+Deep Marreddy https://github.com/LeDeep
+Peter Lowry https://github.com/pjlowry
+Thomas Hopkins https://github.com/thomashopkins
+Diane Wilkins https://github.com/lizwilkins
